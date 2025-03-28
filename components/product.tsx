@@ -29,7 +29,7 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://192.168.1.15:3000/products")
+    fetch("http://192.168.1.100:3000/products")
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);

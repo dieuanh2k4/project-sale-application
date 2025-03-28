@@ -36,7 +36,7 @@ const DetailProduct = ({ route }: any) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch(`http://192.168.1.15:3000/products/${id}`)
+    fetch(`http://192.168.1.100:3000/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setDetailProduct(data);
@@ -100,7 +100,7 @@ const DetailProduct = ({ route }: any) => {
         <View>
           <Image
             source={{ uri: detail_product.thumbnail }}
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "100%", height: 300, resizeMode: "contain" }}
           />
           <View style={styles.line1}>
             <Text style={styles.price}>{detail_product.price} VND</Text>
@@ -117,8 +117,13 @@ const DetailProduct = ({ route }: any) => {
               <Text style={styles.inventory}>Hết hàng</Text>
             )}
           </Text>
+          <Text style={styles.stock}>Đã bán: </Text>
           <Text style={styles.detail}>Mô tả chi tiết: </Text>
           <Text style={styles.description}>{detail_product.description} </Text>
+
+          <View>
+            <Text style={styles.detail}>Sản phẩm tương tự: </Text>
+          </View>
         </View>
 
         <View style={{ paddingBottom: 70 }}>
